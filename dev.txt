@@ -9,3 +9,7 @@ vsce package
 (Ctrl+Shift+X or Cmd+Shift+X)
 
 (Ctrl+Shift+P) >> keybindings.json
+=============
+  "activationEvents": [
+    "onCommand:extension.getActiveFilePath"
+  ],

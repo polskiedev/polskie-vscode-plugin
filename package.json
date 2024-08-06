@@ -1,6 +1,6 @@
 {
   "name": "polskie-vscode-plugin",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "Polskie Dev: polskie-vscode-plugin",
   "publisher": "PolskieDev",
   "description": "Hello World!",
@@ -13,7 +13,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.getActiveFilePath"
+    "*"
   ],
   "contributes": {
     "commands": [

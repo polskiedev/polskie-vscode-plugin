@@ -1,1 +1,1 @@
-Hello World!
+Added Copy activeFilePath on statusbar
