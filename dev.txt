@@ -1,0 +1,11 @@
+==============
+npm install -g yo generator-code
+npm install vscode --save
+npm install -g typescript
+npm install -g vsce
+npm install -g vsce@latest
+==============
+vsce package
+(Ctrl+Shift+X or Cmd+Shift+X)
+
+(Ctrl+Shift+P) >> keybindings.json
