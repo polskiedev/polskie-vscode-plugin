@@ -11,7 +11,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
-const fs = require("fs");
 const os = require("os");
 const path = require("path");
 function activate(context) {
@@ -26,10 +25,10 @@ function activate(context) {
         if (editor) {
             const filePath = editor.document.uri.fsPath;
             const tempFilePath = path.join(os.tmpdir(), 'vscode-active-file.txt');
-            fs.writeFileSync(tempFilePath, filePath, 'utf-8');
+            // fs.writeFileSync(tempFilePath, filePath, 'utf-8');
             yield vscode.env.clipboard.writeText(filePath);
             vscode.window.showInformationMessage(`Active file: ${filePath}`);
-            vscode.window.showInformationMessage(`Temp file: ${tempFilePath}`);
+            // vscode.window.showInformationMessage(`Temp file: ${tempFilePath}`);
         }
         else {
             vscode.window.showInformationMessage('No active file');

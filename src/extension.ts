@@ -16,10 +16,10 @@ export function activate(context: vscode.ExtensionContext) {
         if (editor) {
             const filePath = editor.document.uri.fsPath;
             const tempFilePath = path.join(os.tmpdir(), 'vscode-active-file.txt');
-            fs.writeFileSync(tempFilePath, filePath, 'utf-8');
+            // fs.writeFileSync(tempFilePath, filePath, 'utf-8');
             await vscode.env.clipboard.writeText(filePath);
             vscode.window.showInformationMessage(`Active file: ${filePath}`);
-            vscode.window.showInformationMessage(`Temp file: ${tempFilePath}`);
+            // vscode.window.showInformationMessage(`Temp file: ${tempFilePath}`);
         } else {
             vscode.window.showInformationMessage('No active file');
         }
