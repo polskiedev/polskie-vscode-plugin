@@ -1,9 +1,9 @@
 {
   "name": "polskie-vscode-plugin",
-  "version": "1.0.57",
-  "displayName": "Polskie Plugin",
+  "version": "1.0.60",
+  "displayName": "Polskie Dev Tools: Read-only File Toggle",
   "publisher": "PolskieDev",
-  "description": "Hello World!",
+  "description": "Toggle/Untoggle Read-only attribute on files",
   "icon": "images/icon.png",
   "main": "./out/extension.js",
   "engines": {
@@ -18,39 +18,39 @@
   "contributes": {
     "commands": [
       {
-        "command": "polskie-plugin.getActiveFilePath",
+        "command": "polskieDevTools.getActiveFilePath",
         "title": "Get Active File Path"
       },
       {
-        "command": "polskie-plugin.tagAsReadOnly",
+        "command": "polskieDevTools.tagAsReadOnly",
         "title": "Tag as Read-only"
       },
       {
-        "command": "polskie-plugin.untagAsReadOnly",
+        "command": "polskieDevTools.untagAsReadOnly",
         "title": "Untag as Read-only"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "polskie-plugin.tagAsReadOnly",
+          "command": "polskieDevTools.tagAsReadOnly",
           "when": "isFile && !isReadOnly",
           "group": "navigation"
         },
         {
-          "command": "polskie-plugin.untagAsReadOnly",
+          "command": "polskieDevTools.untagAsReadOnly",
           "when": "isFile && isReadOnly",
           "group": "navigation"
         }
       ],
       "editor/title/context": [
         {
-          "command": "polskie-plugin.tagAsReadOnly",
+          "command": "polskieDevTools.tagAsReadOnly",
           "when": "isFile && !isReadOnly",
           "group": "navigation"
         },
         {
-          "command": "polskie-plugin.untagAsReadOnly",
+          "command": "polskieDevTools.untagAsReadOnly",
           "when": "isFile && isReadOnly",
           "group": "navigation"
         }

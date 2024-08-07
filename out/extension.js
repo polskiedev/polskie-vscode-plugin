@@ -17,9 +17,9 @@ function activate(context) {
     const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1000);
     statusBarItem.text = `FPath`;
     statusBarItem.tooltip = 'Click to copy activeFilePath to clipboard';
-    statusBarItem.command = 'polskie-plugin.getActiveFilePath';
+    statusBarItem.command = 'polskieDevTools.getActiveFilePath';
     statusBarItem.show();
-    let getActiveFilePathDisposable = vscode.commands.registerCommand('polskie-plugin.getActiveFilePath', () => __awaiter(this, void 0, void 0, function* () {
+    let getActiveFilePathDisposable = vscode.commands.registerCommand('polskieDevTools.getActiveFilePath', () => __awaiter(this, void 0, void 0, function* () {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const filePath = editor.document.uri.fsPath;
@@ -33,7 +33,7 @@ function activate(context) {
             vscode.window.showInformationMessage('No active file');
         }
     }));
-    const readOnlyDisposable = vscode.commands.registerCommand('polskie-plugin.tagAsReadOnly', (uri) => __awaiter(this, void 0, void 0, function* () {
+    const readOnlyDisposable = vscode.commands.registerCommand('polskieDevTools.tagAsReadOnly', (uri) => __awaiter(this, void 0, void 0, function* () {
         if (uri) {
             const filePath = uri.fsPath;
             fs.chmod(filePath, '0444', (err) => {
@@ -50,7 +50,7 @@ function activate(context) {
             vscode.window.showWarningMessage('No file selected');
         }
     }));
-    const untagReadOnlyDisposable = vscode.commands.registerCommand('polskie-plugin.untagAsReadOnly', (uri) => __awaiter(this, void 0, void 0, function* () {
+    const untagReadOnlyDisposable = vscode.commands.registerCommand('polskieDevTools.untagAsReadOnly', (uri) => __awaiter(this, void 0, void 0, function* () {
         if (uri) {
             const filePath = uri.fsPath;
             fs.chmod(filePath, '0644', (err) => {

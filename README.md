@@ -1,7 +1,8 @@
 Features:
 - FPath icon in statusbar - copies active file full path in active window
 - To tag/untag file as readonly
-=================================================
+
+
 Scope:
 This applies to 
 - Open file tabs
@@ -12,7 +13,8 @@ Known Limitations:
 
 Tested Environments:
 - Windows > VSCode via WSL
-=================================================
+
+
 v1.0+
 Added Copy activeFilePath on statusbar
 
