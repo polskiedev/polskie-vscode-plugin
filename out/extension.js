@@ -11,12 +11,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deactivate = exports.activate = void 0;
 const vscode = require("vscode");
-const os = require("os");
-const path = require("path");
 function activate(context) {
     // Create a status bar item
-    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 100);
-    statusBarItem.text = `$(clipboard) Copy activeFilePath`;
+    const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Right, 1000);
+    statusBarItem.text = `FP`;
     statusBarItem.tooltip = 'Click to copy activeFilePath to clipboard';
     statusBarItem.command = 'extension.getActiveFilePath';
     statusBarItem.show();
@@ -24,7 +22,7 @@ function activate(context) {
         const editor = vscode.window.activeTextEditor;
         if (editor) {
             const filePath = editor.document.uri.fsPath;
-            const tempFilePath = path.join(os.tmpdir(), 'vscode-active-file.txt');
+            // const tempFilePath = path.join(os.tmpdir(), 'vscode-active-file.txt');
             // fs.writeFileSync(tempFilePath, filePath, 'utf-8');
             yield vscode.env.clipboard.writeText(filePath);
             vscode.window.showInformationMessage(`Active file: ${filePath}`);
