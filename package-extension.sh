@@ -11,4 +11,4 @@ fi
 
 # Move the .vsix file to the specified folder
 # Increment version in package.json
-npm version $VERSION_TYPE -m "Bump version to %s" && npm run compile && vsce package && LATEST_VSIX=$(ls *.vsix | sort -V | tail -n 1) && mv "$LATEST_VSIX" "$OUTPUT_DIR/" && echo "Compiled" 
+npm version $VERSION_TYPE --no-git-tag-version -m "Bump version to %s" && npm run compile && vsce package && LATEST_VSIX=$(ls *.vsix | sort -V | tail -n 1) && mv "$LATEST_VSIX" "$OUTPUT_DIR/" && echo "Compiled" 

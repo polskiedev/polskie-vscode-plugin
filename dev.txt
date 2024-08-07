@@ -13,3 +13,5 @@ vsce package
   "activationEvents": [
     "onCommand:extension.getActiveFilePath"
   ],
+=============
+workbench.action.files.setActiveEditorWriteableInSession
