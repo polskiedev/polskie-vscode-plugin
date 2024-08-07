@@ -1,7 +1,7 @@
 {
   "name": "polskie-vscode-plugin",
-  "version": "1.0.51",
-  "displayName": "Polskie Extension",
+  "version": "1.0.56",
+  "displayName": "Polskie Plugin",
   "publisher": "PolskieDev",
   "description": "Hello World!",
   "icon": "images/icon.png",
@@ -18,16 +18,51 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.getActiveFilePath",
+        "command": "polskie-plugin.getActiveFilePath",
         "title": "Get Active File Path"
+      },
+      {
+        "command": "polskie-plugin.tagAsReadOnly",
+        "title": "Tag as Read-only"
+      },
+      {
+        "command": "polskie-plugin.untagAsReadOnly",
+        "title": "Untag as Read-only"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "polskie-plugin.tagAsReadOnly",
+          "when": "isFile && !isReadOnly",
+          "group": "navigation"
+        },
+        {
+          "command": "polskie-plugin.untagAsReadOnly",
+          "when": "isFile && isReadOnly",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "polskie-plugin.tagAsReadOnly",
+          "when": "isFile && !isReadOnly",
+          "group": "navigation"
+        },
+        {
+          "command": "polskie-plugin.untagAsReadOnly",
+          "when": "isFile && isReadOnly",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
     "vscode:prepublish": "npm run compile",
-    "make": "npm run compile; vsce package"
+    "package": "sh ./package-extension.sh minor",
+    "package:major": "sh ./package-extension.sh major"
   },
   "repository": {
     "type": "git",
